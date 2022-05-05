@@ -11,7 +11,7 @@
 
 using namespace std;
 
-#define edition "Bell 1.1"
+#define edition "Bell 1.2.1"
 
 SYSTEMTIME sys;
 #define hour sys.wHour
@@ -108,6 +108,12 @@ void Manual_Play()
 			if (KEY_DOWN('J')) playsound("上课.mp3");
 			if (KEY_DOWN('K')) playsound("下课.mp3");
 			if (KEY_DOWN('L')) playsound("眼保健操.mp3");
+			if (KEY_DOWN('I'))
+			{
+				mciSendString("stop 上课.mp3", NULL, 0, NULL);
+				mciSendString("stop 下课.mp3", NULL, 0, NULL);
+				mciSendString("stop 眼保健操.mp3", NULL, 0, NULL);
+			}
 		}
 		Sleep(1);
 	}
